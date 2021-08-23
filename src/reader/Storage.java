@@ -1,7 +1,6 @@
 package reader;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -31,11 +30,9 @@ public class Storage {
 			ready = true;
 			notify();
 
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 	
 	public synchronized void read() {
@@ -48,12 +45,6 @@ public class Storage {
 		}
 		while (!queue.isEmpty()) {
 			System.out.println(queue.remove());
-			
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 		}
 		ready = false;
 		notify();
