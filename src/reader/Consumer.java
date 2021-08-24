@@ -8,13 +8,8 @@ public class Consumer implements Runnable {
 	}
 
 	@Override
-	public void run() {
+	public synchronized void run() {
 		storage.read();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	

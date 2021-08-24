@@ -9,7 +9,7 @@ public class Producer implements Runnable {
 	}
 
 	@Override
-	public void run() {
+	public synchronized void run() {
 		storage.write();
 	}
 
